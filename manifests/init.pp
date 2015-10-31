@@ -21,6 +21,7 @@
 #
 class libvirt (
   $defaultnetwork            = false,
+  $pool                      = {},
   $networks                  = {},
   $networks_defaults         = {},
   $virtinst                  = true,
@@ -158,6 +159,9 @@ class libvirt (
 
   # Create Optional networks
   create_resources(libvirt::network, $networks, $networks_defaults)
+
+  # Create Optional pool
+  create_resources(libvirt::pool, $pool)
 
 }
 
